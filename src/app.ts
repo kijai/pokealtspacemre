@@ -26,6 +26,7 @@ type HatDescriptor = {
 		y: number;
 		z: number;
 	};
+    attachwhere: string;
 };
 
 /**
@@ -202,7 +203,7 @@ export default class WearAHat {
 					}
 				},
 				attachment: {
-					attachPoint: 'head',
+					attachPoint: hatRecord.attachwhere,
 					userId
 				}
 			}
