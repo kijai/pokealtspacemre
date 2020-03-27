@@ -19,7 +19,8 @@ dotenv.config();
 // Start listening for connections, and serve static files
 const server = new WebHost({
 	baseUrl: 'https://altspacepoke.herokuapp.com',
-	port: process.env.PORT, 
+	port: process.env.PORT,
+    baseDir: resolvePath(__dirname, '../public')
 });
 
 // Handle new application sessions
