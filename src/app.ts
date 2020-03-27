@@ -26,7 +26,7 @@ type HatDescriptor = {
 		y: number;
 		z: number;
 	};
-    
+    attachwhere: any;
 };
 
 /**
