@@ -1,0 +1,127 @@
+{
+    "none": {
+        "displayName": "None"
+    },
+    "hardhat": {
+        "displayName": "EduXR logo (test)",
+        "resourceName": "eduxrlogotest.glb",
+        "scale": {
+            "x": 0.006,
+            "y": 0.006,
+            "z": 0.006
+        },
+        "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "position": {
+            "x": 0,
+            "y": -0.05,
+            "z": 0.15
+        },
+        "attachwhere": "spine-middle"
+
+        
+    },
+    "LavaHelmet": {
+        "displayName": "Kysymysmerkki",
+        "resourceName": "questionmark.glb",
+        "scale": {
+            "x": 0.015,
+            "y": 0.015,
+            "z": 0.015
+        },
+        "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "position": {
+            "x": 0,
+            "y": 0.09,
+            "z": 0
+        },
+        "attachwhere": "head"
+    },
+    "redhat": {
+        "displayName": "Red Hat",
+        "resourceName": "redhat.glb",
+        "scale": {
+            "x": 0.015,
+            "y": 0.015,
+            "z": 0.015
+        },
+        "rotation": {
+            "x": 15,
+            "y": 180,
+            "z": 0
+        },
+        "position": {
+            "x": 0,
+            "y": 0.09,
+            "z": -0.05
+        },
+        "attachwhere": "head"
+    },
+    "strawhat": {
+        "displayName": "BusterSword",
+        "resourceName": "bustersword.glb",
+        "scale": {
+            "x": 0.015,
+            "y": 0.015,
+            "z": 0.015
+        },
+        "rotation": {
+            "x": 270,
+            "y": 270,
+            "z": 0
+        },
+        "position": {
+            "x": -0.1,
+            "y": 0,
+            "z": 0.1
+        },
+        "attachwhere": "right-hand"
+    },
+    "tophat": {
+        "displayName": "Top Hat",
+        "resourceName": "tophat.glb",
+        "scale": {
+            "x": 0.015,
+            "y": 0.015,
+            "z": 0.015
+        },
+        "rotation": {
+            "x": 10,
+            "y": 180,
+            "z": 0
+        },
+        "position": {
+            "x": 0,
+            "y": 0.05,
+            "z": -0.05
+        },
+        "attachwhere": "head"
+    },
+    "wizardhat": {
+        "displayName": "Wizard Hat",
+        "resourceName": "wizardhat.glb",
+        "scale": {
+            "x": 0.015,
+            "y": 0.015,
+            "z": 0.015
+        },
+        "rotation": {
+            "x": 10,
+            "y": 180,
+            "z": 0
+        },
+        "position": {
+            "x": 0,
+            "y": 0.055,
+            "z": -0.06
+        },
+        "attachwhere": "head"
+    }
+}
