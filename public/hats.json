@@ -124,6 +124,70 @@
         },
         "attachwhere": "spine-middle"
     },
+  
+  "pokelogo": {
+        "displayName": "Poke logo",
+        "resourceName": "poketext.glb",
+        "scale": {
+            "x": 0.006,
+            "y": 0.006,
+            "z": 0.006
+        },
+        "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "position": {
+            "x": 0,
+            "y": -0.05,
+            "z": 0.15
+        },
+        "attachwhere": "spine-middle"
+    },
+  
+  "jyulogo": {
+        "displayName": "JYU logo",
+        "resourceName": "jyusoihtu.glb",
+        "scale": {
+            "x": 0.006,
+            "y": 0.006,
+            "z": 0.006
+        },
+        "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "position": {
+            "x": 0,
+            "y": -0.05,
+            "z": 0.15
+        },
+        "attachwhere": "spine-middle"
+    },
+  
+    "tunilogo": {
+        "displayName": "TUNI logo",
+        "resourceName": "tuni.glb",
+        "scale": {
+            "x": 0.006,
+            "y": 0.006,
+            "z": 0.006
+        },
+        "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "position": {
+            "x": 0,
+            "y": -0.05,
+            "z": 0.15
+        },
+        "attachwhere": "spine-middle"
+    },
+  
   "staff": {
         "displayName": "Staff",
         "resourceName": "staff.glb",
