@@ -2,28 +2,7 @@
     "none": {
         "displayName": "None"
     },
-    "eduxr": {
-        "displayName": "EduXR logo (test)",
-        "resourceName": "eduxrlogotest.glb",
-        "scale": {
-            "x": 0.006,
-            "y": 0.006,
-            "z": 0.006
-        },
-        "rotation": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-        },
-        "position": {
-            "x": 0,
-            "y": -0.05,
-            "z": 0.15
-        },
-        "attachwhere": "spine-middle"
-
-        
-    },
+    
     "questionmark": {
         "displayName": "Kysymysmerkki",
         "resourceName": "questionmark.glb",
@@ -45,7 +24,7 @@
         "attachwhere": "head"
     },
     "pinkhat": {
-        "displayName": "Pinkkihattut",
+        "displayName": "Pinkkihattu",
         "resourceName": "pinkkihattu.glb",
         "scale": {
             "x": 0.015,
@@ -64,46 +43,7 @@
         },
         "attachwhere": "head"
     },
-    "strawhat": {
-        "displayName": "BusterSword",
-        "resourceName": "bustersword.glb",
-        "scale": {
-            "x": 0.015,
-            "y": 0.015,
-            "z": 0.015
-        },
-        "rotation": {
-            "x": 270,
-            "y": 270,
-            "z": 0
-        },
-        "position": {
-            "x": -0.1,
-            "y": 0,
-            "z": 0.1
-        },
-        "attachwhere": "right-hand"
-    },
-    "tophat": {
-        "displayName": "Top Hat",
-        "resourceName": "tophat.glb",
-        "scale": {
-            "x": 0.015,
-            "y": 0.015,
-            "z": 0.015
-        },
-        "rotation": {
-            "x": 10,
-            "y": 180,
-            "z": 0
-        },
-        "position": {
-            "x": 0,
-            "y": 0.05,
-            "z": -0.05
-        },
-        "attachwhere": "head"
-    },
+       
     "digilablogo": {
         "displayName": "PokeDigilab logo",
         "resourceName": "digilablogo.glb",
