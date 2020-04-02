@@ -149,8 +149,8 @@
         "attachwhere": "head"
     },
   
-   "digilablogo": {
-        "displayName": "PokeDigilab logo",
+   "EDUXR2020": {
+        "displayName": "EXUXR2020 textlogo",
         "resourceName": "eduxrlogotext_final.glb",
         "scale": {
             "x": 0.006,
