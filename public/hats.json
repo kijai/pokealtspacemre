@@ -90,9 +90,9 @@
         "displayName": "JYU logo",
         "resourceName": "jyusoihtu.glb",
         "scale": {
-            "x": 0.007,
-            "y": 0.007,
-            "z": 0.007
+            "x": 0.008,
+            "y": 0.008,
+            "z": 0.008
         },
         "rotation": {
             "x": 0,
@@ -108,12 +108,12 @@
     },
   
     "tunilogo": {
-        "displayName": "TUNI logo",
+        "displayName": "TAU logo",
         "resourceName": "tuni.glb",
         "scale": {
-            "x": 0.007,
-            "y": 0.007,
-            "z": 0.007
+            "x": 0.008,
+            "y": 0.008,
+            "z": 0.008
         },
         "rotation": {
             "x": 0,
