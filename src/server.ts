@@ -4,6 +4,7 @@
  */
 
 import { WebHost } from '@microsoft/mixed-reality-extension-sdk';
+import { Permissions, WebHost } from '@microsoft/mixed-reality-extension-sdk';
 import dotenv from 'dotenv';
 import { resolve as resolvePath } from 'path';
 import App from './app';
@@ -20,7 +21,8 @@ dotenv.config();
 const server = new WebHost({
 	baseUrl: 'https://altspacepoke.herokuapp.com',
 	port: process.env.PORT,
-    baseDir: resolvePath(__dirname, '../public')
+    baseDir: resolvePath(__dirname, '../public'),
+    optionalPermissions: [Permissions.UserInteraction]
 });
 
 // Handle new application sessions
