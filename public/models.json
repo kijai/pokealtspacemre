@@ -1,0 +1,26 @@
+{
+"miikka_greenscreen": {
+        "kitID":"artifact:1851446106932641961",
+        "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+        },
+        "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "attachposition": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
+    }
+
+}
