@@ -26,7 +26,7 @@ export default class AnimationTest {
 	public started() {
 		this.assets = new MRE.AssetContainer(this.context);
 		this.tracktor();
-		};
+		}
 		
 	public async tracktor() {
 		let _animState = 0;
@@ -76,8 +76,7 @@ export default class AnimationTest {
 				}
 			}
 
-		});
-				 											
+		}); 											
 		const AnimButtonBehavior = AnimButton.setBehavior(MRE.ButtonBehavior);
 		const cycleanimState = () => {
 				if (_animState === 0) {
