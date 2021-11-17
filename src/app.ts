@@ -60,7 +60,7 @@ export default class AnimationTest {
 			}
 			
 		});*/
-		const buttonMesh = this.assets.createBoxMesh('button', 0.5, 0.5, 0.02);
+		const buttonMesh = this.assets.createBoxMesh('button', 0.4, 0.4, 0.02);
 		const AnimButton = MRE.Actor.Create(this.context, {
 			actor: {
 				
@@ -68,7 +68,7 @@ export default class AnimationTest {
 				appearance: { meshId: buttonMesh.id },
 				transform: {
 					local: {
-				position: { x: -0.4, y: 0.5, z: 0 } 
+				position: { x: -0.4, y: 1, z: 0 } 
 				}
 			},
 			collider: {
