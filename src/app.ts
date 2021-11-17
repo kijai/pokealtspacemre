@@ -1,76 +1,170 @@
-import {
-	Actor,
-	AssetContainer,
-	Context,
-	Guid,
-	ColliderType
-} from '@microsoft/mixed-reality-extension-sdk';
+import * as MRE from '@microsoft/mixed-reality-extension-sdk';
 
-type ModelDescriptor = {
-	kitID: string;
-	scale: {
-		x: number;
-		y: number;
-		z: number;
-	};
-	rotation: {
-		x: number;
-		y: number;
-		z: number;
-	};
-	position: {
-		x: number;
-		y: number;
-		z: number;
-	};
-	attachposition: {
-		x: number;
-		y: number;
-		z: number;
-	};
-};
+interface ControlDefinition {
+	label: string;
+	action: (incr: number) => string;
+	realtime?: boolean;
+	labelActor?: MRE.Actor;
+}
 
-type ModelDatabase = {
-	[key: string]: ModelDescriptor;
-};
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const ModelDatabase: ModelDatabase = require('../public/models.json');
-
-export default class HelloWorld {
-	private assets: AssetContainer;
-
-	// attachedObjects is a Map that stores userIds and the attached object
-	private attachedObjects = new Map<Guid, Actor>();
-
-	constructor(private context: Context, private baseUrl: string) {
-		this.assets = new AssetContainer(context);
+export default class AnimationTest {
+	public expectedResultDescription = "Tweak an animation";
+	public videoplayer: MRE.Actor = null;
+	private assets: MRE.AssetContainer;
+	private timeout: NodeJS.Timeout;
+	
+	//public model: MRE.Actor = null;
+	constructor(private context: MRE.Context, private baseUrl: string) {
 		this.context.onStarted(() => this.started());
-		
 	}
-	private started(){
-		return Promise.all(
-			Object.keys(ModelDatabase).map(modelId => {
-				const modelRecord = ModelDatabase[modelId];
-				if (modelRecord.kitID) {
-					const attachBtn = Actor.CreateFromLibrary(this.context, {
-						resourceId: modelRecord.kitID,
-						actor: {
-							transform: {
-								local: {
-							scale: modelRecord.scale,
-							position: modelRecord.position
-							}
+
+	public cleanup() {
+		clearInterval(this.timeout);
+		this.assets.unload();
+	}
+
+	public started() {
+		this.assets = new MRE.AssetContainer(this.context);
+		this.tracktor();
+		};
+		
+	public async tracktor() {
+		let _animState = 0;
+		
+		const tracktormodel = MRE.Actor.CreateFromGltf(new MRE.AssetContainer(this.context), {
+			uri: `${this.baseUrl}/tracktor_transmission_inner_textured.glb`,
+			
+			colliderType: 'box',
+			actor: {
+				name: 'Tracktor_transmission',
+				transform: {
+					local: {
+						position: { x: 0, y: 0, z: 0 },
+						scale: { x: 1, y: 1, z: 1 },
+						rotation: {y:180}
+					}
 				},
-						collider: {
-						geometry: { shape: ColliderType.Box }
+				grabbable: true
+			}
+		});
+		
+		await tracktormodel.created();
+		const tracktoranim = tracktormodel.targetingAnimationsByName.get("forward");
+		tracktoranim.wrapMode = MRE.AnimationWrapMode.PingPong;
+		/*const flexrollclickbehavior = tracktormodel.setBehavior(MRE.ButtonBehavior);
+		flexrollclickbehavior.onClick (_=>{
+			if (tracktoranim.isPlaying){
+				tracktoranim.stop();
+			}else{
+				tracktoranim.play();
+			}
+			
+		});*/
+		const buttonMesh = this.assets.createBoxMesh('button', 0.5, 0.5, 0.02);
+		const AnimButton = MRE.Actor.Create(this.context, {
+			actor: {
+				
+				name: "playanim",
+				appearance: { meshId: buttonMesh.id },
+				transform: {
+					local: {
+				position: { x: -0.4, y: 0.5, z: 0 } 
+				}
+			},
+			collider: {
+			geometry: { shape: MRE.ColliderType.Box }
 				}
 			}
 
-		});	
+		});
 		
-				} 
+		const AnimButton_02 = MRE.Actor.Create(this.context, {
+			actor: {
 				
-			}));
-		
+				name: "open",
+				appearance: { meshId: buttonMesh.id },
+				transform: {
+					local: {
+				position: { x: 1, y: 0.5, z: 0 } 
+				}
+			},
+			collider: {
+			geometry: { shape: MRE.ColliderType.Box }
+				}
+			}
+
+		});
+
+		const AnimButton_02Behavior = AnimButton_02.setBehavior(MRE.ButtonBehavior);
+		const cycleanim02State = () => {
+			if (_animState === 0) {
+				
+				tracktormodel.appearance.material.;
+				
+					tracktoranim.play();
+				
+				MRE.Animation.AnimateTo(this.context, AnimButton, {
+					destination: { transform: { local: { scale: { x: 0.5, y: 0.5, z: 0.5 } } } },
+					duration: 0.3,
+					easing: MRE.AnimationEaseCurves.EaseOutSine
+					});
+
+			} else if (_animState === 1) {
+				tracktoranim.stop();
+
+				MRE.Animation.AnimateTo(this.context, AnimButton, {
+					destination: { transform: { local: { scale: { x: 1, y: 1, z: 1 } } } },
+					duration: 0.3,
+					easing: MRE.AnimationEaseCurves.EaseOutSine
+					});
+			}
+			_animState = (_animState + 1) % 2;
+		};
+		AnimButton_02Behavior.onButton('released', cycleanim02State);
+							
+		const AnimButtonBehavior = AnimButton.setBehavior(MRE.ButtonBehavior);
+		const cycleanimState = () => {
+				if (_animState === 0) {
+					
+					
+						tracktoranim.play();
+					
+					MRE.Animation.AnimateTo(this.context, AnimButton, {
+						destination: { transform: { local: { scale: { x: 0.5, y: 0.5, z: 0.5 } } } },
+						duration: 0.3,
+						easing: MRE.AnimationEaseCurves.EaseOutSine
+						});
+
+				} else if (_animState === 1) {
+					tracktoranim.stop();
+
+					MRE.Animation.AnimateTo(this.context, AnimButton, {
+						destination: { transform: { local: { scale: { x: 1, y: 1, z: 1 } } } },
+						duration: 0.3,
+						easing: MRE.AnimationEaseCurves.EaseOutSine
+						});
+				}
+				_animState = (_animState + 1) % 2;
+			};
+		AnimButtonBehavior.onButton('released', cycleanimState);
+
+	MRE.Actor.Create(this.context, {
+				actor: {
+					parentId: AnimButton.id,
+					name: 'label',
+					text: {
+						contents: "play",
+						height: 0.1,
+						anchor: MRE.TextAnchorLocation.MiddleLeft
+					},
+					transform: {
+						local: { position: { x: 0, y: 0.5, z: 0 } }
+					}
+				}
+			});
+
+
 	}
+
+	
 }
