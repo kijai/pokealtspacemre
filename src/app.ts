@@ -12,7 +12,7 @@ export default class AnimationTest {
 	public videoplayer: MRE.Actor = null;
 	private assets: MRE.AssetContainer;
 	private timeout: NodeJS.Timeout;
-	
+	private mat: MRE.Material;
 	//public model: MRE.Actor = null;
 	constructor(private context: MRE.Context, private baseUrl: string) {
 		this.context.onStarted(() => this.started());
@@ -47,7 +47,7 @@ export default class AnimationTest {
 				grabbable: true
 			}
 		});
-		
+		this.mat = this.assets.materials[0];  
 		await tracktormodel.created();
 		const tracktoranim = tracktormodel.targetingAnimationsByName.get("forward");
 		tracktoranim.wrapMode = MRE.AnimationWrapMode.PingPong;
@@ -77,51 +77,7 @@ export default class AnimationTest {
 			}
 
 		});
-		
-		const AnimButton_02 = MRE.Actor.Create(this.context, {
-			actor: {
-				
-				name: "open",
-				appearance: { meshId: buttonMesh.id },
-				transform: {
-					local: {
-				position: { x: 1, y: 0.5, z: 0 } 
-				}
-			},
-			collider: {
-			geometry: { shape: MRE.ColliderType.Box }
-				}
-			}
-
-		});
-
-		const AnimButton_02Behavior = AnimButton_02.setBehavior(MRE.ButtonBehavior);
-		const cycleanim02State = () => {
-			if (_animState === 0) {
-				
-				tracktormodel.appearance.material.;
-				
-					tracktoranim.play();
-				
-				MRE.Animation.AnimateTo(this.context, AnimButton, {
-					destination: { transform: { local: { scale: { x: 0.5, y: 0.5, z: 0.5 } } } },
-					duration: 0.3,
-					easing: MRE.AnimationEaseCurves.EaseOutSine
-					});
-
-			} else if (_animState === 1) {
-				tracktoranim.stop();
-
-				MRE.Animation.AnimateTo(this.context, AnimButton, {
-					destination: { transform: { local: { scale: { x: 1, y: 1, z: 1 } } } },
-					duration: 0.3,
-					easing: MRE.AnimationEaseCurves.EaseOutSine
-					});
-			}
-			_animState = (_animState + 1) % 2;
-		};
-		AnimButton_02Behavior.onButton('released', cycleanim02State);
-							
+				 											
 		const AnimButtonBehavior = AnimButton.setBehavior(MRE.ButtonBehavior);
 		const cycleanimState = () => {
 				if (_animState === 0) {
